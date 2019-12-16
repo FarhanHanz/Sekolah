@@ -13,9 +13,9 @@ class M_guru extends CI_model {
 		 return $this->db->insert('guru',$data);
 	}
 
-	public function getid($id)
+	public function getid($nip)
 	{
-		$param=array('nip' => $id);
+		$param=array('nip' => $nip);
 		return $this->db->get_where('guru',$param);
 	}
 

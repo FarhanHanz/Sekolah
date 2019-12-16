@@ -37,7 +37,7 @@ class Guru extends CI_controller {
 
 	public function update()
 	{
-		$id=$this->input->post('nip');
+		$nip=$this->input->post('nip');
 		$data=array(
 		'nip'=>$this->input->post('nip'),
 		'nama'=>$this->input->post('nama'),
@@ -51,9 +51,9 @@ class Guru extends CI_controller {
 
 	public function edit()
 	{
-		$id=$this->uri->segment(3);
+		$nip=$this->uri->segment(3);
 		$data['judul']="Edit Data Guru";
-		$data['edit']=$this->M_guru->getid($id)->row_array();
+		$data['edit']=$this->M_guru->getid($nip)->row_array();
 		$this->load->view('guru/edit', $data, FALSE);
 	}
 
