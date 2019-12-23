@@ -13,13 +13,17 @@ class Guru extends CI_controller {
 	{
 		$data['judul']="Tampil Data Guru";
 		$data['tampil']=$this->M_guru->tg()->result();	
+		$this->load->view('theme/header', $data, FALSE);
 		$this->load->view('guru/tampil', $data, FALSE);
+		$this->load->view('theme/footer', $data, FALSE);
 	}
 
 	public function input()
 	{	
 		$data['judul']="Input Data Guru Baru";
+		$this->load->view('theme/header', $data, FALSE);
 		$this->load->view('guru/input', $data, FALSE);
+		$this->load->view('theme/footer', $data, FALSE);
 	}
 
 	public function save()
@@ -54,7 +58,9 @@ class Guru extends CI_controller {
 		$nip=$this->uri->segment(3);
 		$data['judul']="Edit Data Guru";
 		$data['edit']=$this->M_guru->getid($nip)->row_array();
+		$this->load->view('theme/header', $data, FALSE);
 		$this->load->view('guru/edit', $data, FALSE);
+		$this->load->view('theme/footer', $data, FALSE);
 	}
 
 	public function delete()
